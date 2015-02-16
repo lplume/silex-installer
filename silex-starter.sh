@@ -141,7 +141,3 @@ sudo a2ensite $2.conf
 sudo service apache2 restart
 
 echo "Do not forget to add $2 to your /etc/hosts file";
-
-
-
-
