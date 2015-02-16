@@ -43,8 +43,8 @@ case $yn in
 ));
 
 EOT
-break;;
-	[Nn]* ) break;;
+;;
+	[Nn]* ) ;;
     * ) echo "Please answer yes or no.";;
 esac
 
@@ -52,8 +52,8 @@ read -p "Do you wish to install Twig Bridge? [YyNn] " yn
 case $yn in
     [Yy]* )
 		echo "Installing twig bridge through composer..."
-		composer require symfony/twig-bridge; break;;
-	[Nn]* ) break;;
+		composer require symfony/twig-bridge; ;;
+	[Nn]* ) ;;
     * ) echo "Please answer yes or no.";;
 esac
 
@@ -66,8 +66,8 @@ case $yn in
 \$app->register(new Silex\\Provider\\ValidatorServiceProvider());
 
 EOT
-break;;
-	[Nn]* ) break;;
+;;
+	[Nn]* ) ;;
     * ) echo "Please answer yes or no.";;
 esac
 
@@ -80,8 +80,8 @@ case $yn in
 \$app->register(new Silex\\Provider\\FormServiceProvider());
 
 EOT
-break;;
-	[Nn]* ) break;;
+;;
+	[Nn]* ) ;;
     * ) echo "Please answer yes or no.";;
 esac
 
@@ -96,8 +96,8 @@ case $yn in
 ));
 
 EOT
-break;;
-	[Nn]* ) break;;
+;;
+	[Nn]* ) ;;
     * ) echo "Please answer yes or no.";;
 esac
 
@@ -112,8 +112,8 @@ case $yn in
 ));
 
 EOT
-break;;
-	[Nn]* ) break;;
+;;
+	[Nn]* ) ;;
     * ) echo "Please answer yes or no.";;
 esac
 
