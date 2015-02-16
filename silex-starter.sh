@@ -5,6 +5,14 @@ echo "Checking composer";
 # $1 destinazione
 # $2 server name
 
+if [ $# -lt 2 ]
+  then
+    echo "silex-starter: missing destination and/or servername"
+    echo
+    echo "You need to specify a destination path and a server name"
+    echo "./silex-starter.sh /home/foo/www/silextest silextest.localhost"
+fi
+
 composer >/dev/null 2>&1 || {
 	echo >&2 "Composer is not installed, im gonna get it.";
 	curl -sS https://getcomposer.org/installer | php
