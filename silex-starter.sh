@@ -15,19 +15,19 @@ sudo composer self-update
 
 echo "Creating destination directory (if needed)";
 
-mkdir -p $1 || { echo >&2 "cannot create destination directory"; }
+mkdir -p "$1" || { echo >&2 "cannot create destination directory"; }
 
 echo "Creating web directory";
-mkdir -p $1/web
+mkdir -p "$1/web"
 
 index=$1/web/index.php
-cp silexboot $index
+cp silexboot "$index"
 
 echo "Creating src directory";
-mkdir -p $1/src
+mkdir -p "$1/src"
 
-current=`pwd`
-cd $1
+current="$PWD"
+cd "$1"
 
 echo "Installing silex through composer..."
 composer require silex/silex
@@ -122,13 +122,13 @@ cat <<EOT >> $index
 \$app->run();
 EOT
 
-cd $current
+cd "$current"
 
 echo "Preparing .htaccess"
-cp apache_htaccess $1/web/.htaccess
+cp apache_htaccess "$1/web/.htaccess"
 
 echo "Preparing virtual host";
-mkdir -p $1/log
+mkdir -p "$1/log"
 
 sudo cp vh "/etc/apache2/sites-available/$2.conf"
 sudo sed -i "s@DOCROOT@$1/web@" "/etc/apache2/sites-available/$2.conf"
@@ -136,7 +136,7 @@ sudo sed -i "s@BASE@$1@" "/etc/apache2/sites-available/$2.conf"
 sudo sed -i "s@SERVERNAME@$2@" "/etc/apache2/sites-available/$2.conf"
 
 echo "Enabling virtual host"
-sudo a2ensite $2.conf
+sudo a2ensite "$2.conf"
 
 sudo service apache2 restart
 
